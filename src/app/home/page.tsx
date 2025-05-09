@@ -1,8 +1,8 @@
 // src/app/home/Home.tsx
 import React from 'react';
-import Sidebar from '../../components/Sidebar';
-import Header from '../../components/Header';
 import './Home.css';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 
 const Home = () => {
   return (
