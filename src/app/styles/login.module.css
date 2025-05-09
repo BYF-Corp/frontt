@@ -1,0 +1,64 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.loginCard {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 100%;
+}
+
+.formSection {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoContainer {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--orange-primary);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--orange-primary);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.imageSection {
+  width: 50%;
+}
