@@ -29,11 +29,27 @@
 }
 
 .order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   margin: 20px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background: white;
+  background: var(--oxfore-blue-primary);
+}
+
+.order-item p{
+  color: white;
+  font-size: 3rem;
+}
+
+.order-action button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 button {
@@ -54,11 +70,11 @@ button:hover {
 }
 
 .add-button button {
-  background-color: #000000;
+  background-color: var(--oxfore-blue-primary);
   color: white;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  border-radius: 10%;
+  width: 120px;
+  height: 60px;
   font-size: 24px;
   border: none;
   cursor: pointer;

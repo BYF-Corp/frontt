@@ -14,13 +14,15 @@ const Home = () => {
         <div className="orders">
           <div className="order-item">
             <p>Order ID: 1</p>
-            <button>Edit</button>
-            <button>Delete</button>
-            <button>Confirm</button>
+            <div className="order-action">
+              <button>Edit</button>
+              <button>Delete</button>
+              <button>Confirm</button>
+            </div>
           </div>
         </div>
         <div className="add-button">
-          <button>+</button>
+          <button>+ ADD</button>
         </div>
       </div>
     </div>
