@@ -12,6 +12,9 @@ const Sidebar = () => {
         <li><Link href="/order-page">Orders</Link></li>
         <li><Link href="/dashboard">Dashboard</Link></li>
       </ul>
+      <ul>
+        <li><Link href="/login">Logout</Link></li>
+      </ul>
     </div>
   );
 };

@@ -11,10 +11,10 @@ export default function LoginPage() {
         {/* พื้นหลัง */}
         <div>
           <Image
-            src="/images/background.jpg"
+            src="/images/friendfiesbackground.png"
             alt="Friend Fries Background"
-            width={1440}
-            height={1024}
+            width={800}
+            height={750}
             className={styles.backgroundImage}
             priority
           />
