@@ -19,6 +19,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div classname="add-button"><button>+</button></div>
     </div>
   );
 };
