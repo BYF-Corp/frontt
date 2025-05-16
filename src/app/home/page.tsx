@@ -1,4 +1,3 @@
-// src/app/home/Home.tsx
 import React from 'react';
 import './Home.css';
 import Sidebar from '../components/Sidebar';
@@ -9,7 +8,9 @@ const Home = () => {
     <div className="home-container">
       <Sidebar />
       <div className="home-content">
-        <Header title="Home" />
+        <div className="header">
+          <Header title="Home" />
+        </div>
         <div className="orders">
           <div className="order-item">
             <p>Order ID: 1</p>
@@ -18,8 +19,10 @@ const Home = () => {
             <button>Confirm</button>
           </div>
         </div>
+        <div className="add-button">
+          <button>+</button>
+        </div>
       </div>
-      <div classname="add-button"><button>+</button></div>
     </div>
   );
 };
