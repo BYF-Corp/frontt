@@ -12,7 +12,7 @@ export default function LoginForm() {
   async function onLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     try{
-      const res = await fetch('http://127.0.0.1:8000/api/token/', {
+      const res = await fetch(`http://127.0.0.1:8001/api/token/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
