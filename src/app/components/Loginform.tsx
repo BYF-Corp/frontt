@@ -1,20 +1,45 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from '@/app/styles/loginForm.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // ตรงนี้จะเพิ่มการจัดการล็อกอินในอนาคต
-    console.log('Login attempt:', { username, password });
-  };
+  async function onLogin(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    try{
+      const res = await fetch(`http://127.0.0.1:8001/api/token/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({username ,password}),
+      })
+
+      const data = await res.json()
+
+      if(!res.ok){
+        throw new Error(data.detail || 'Login failed')
+      }
+
+      localStorage.setItem('jwt_access', data.access)
+      localStorage.setItem('jwt_refresh', data.refresh)
+      document.cookie = `jwt_access=${data.access}; path=/;`
+
+      router.push('/home')
+    } catch (err){
+      alert('YOur username/password are incorrect!')
+      console.error(err)
+    }
+  }
+
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={onLogin}>
       <div className={styles.inputGroup}>
         <input
           type="text"
