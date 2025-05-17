@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+}
+
+.main {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.image {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.addButton {
+  background-color: teal;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100px;
+  align-self: flex-start;
+}
+
+.addButton:hover {
+  opacity: 0.85;
+}

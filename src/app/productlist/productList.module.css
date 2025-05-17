@@ -1,0 +1,50 @@
+.pageContainer {
+  display: flex;
+  height: 100vh;
+  background-color: var(--cream-background);
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 16px 32px;
+  background-color: white;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 150px; 
+  background-color: var(--cream-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 5rem;
+  justify-items: center;
+}
+
+.productCard {
+  text-align: center;
+  cursor: pointer;
+}
+
+.productCard img {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.productCard p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-color);
+}
