@@ -1,8 +1,22 @@
+'use client'
+
 import React from 'react';
 import Link from 'next/link';
 import './Sidebar.css';
+import { useRouter } from 'next/navigation';
 
 const Sidebar = () => {
+  const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwt_access');
+    localStorage.removeItem('jwt_refresh')
+  
+    document.cookie = 'jwt_access=; path=/; max-age=0'
+
+    router.push('/login')
+  }
+
   return (
     <div className="sidebar">
       <h2 className="sidebar-title">Dashboard</h2>
@@ -13,7 +27,7 @@ const Sidebar = () => {
         <li><Link href="/dashboard">Dashboard</Link></li>
       </ul>
       <ul>
-        <li><Link href="/login">Logout</Link></li>
+        <button onClick={handleLogout} className='logout-button'>Logout</button>
       </ul>
     </div>
   );
