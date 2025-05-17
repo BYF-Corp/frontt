@@ -9,8 +9,6 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
-# Build the Next.js app
-RUN npm run build
 
 EXPOSE 3000
 
