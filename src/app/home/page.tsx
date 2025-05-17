@@ -6,21 +6,6 @@ import { FaCashRegister } from "react-icons/fa";
 import { HiOutlinePlus } from "react-icons/hi";
 import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
-import OrderItemCard from './components/OrderItemCard';
-
-async function deleteOrder(id: number) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order/${id}/`, {
-    method: 'DELETE',
-  });
-
-  if (!res.ok) {
-    throw new Error('Delete order failed!');
-  }
-
-  
-  return true;
-}
-
 
 async function getOrder() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order`)
@@ -45,11 +30,14 @@ const Home = async () => {
           <Header title="Home" />
         </div>
         <div className="orders">
-          {
-            sortedOrder.map((order: any, index: number) => (
-              <OrderItemCard key={index} order={order}/>
-            ))
-          }
+          <div className="order-item">
+            <p>Order ID: 1</p>
+            <div className="order-action">
+              <button className='Edit'> <FaRegEdit size={24} /></button>
+              <button className='Delete'> <FaTrash size={24} /> </button>
+              <button className ='check'> <FaCashRegister size={24} />  </button>
+            </div>
+          </div>
         </div>
         <div className="add-button">
           <button> + ADD</button>
