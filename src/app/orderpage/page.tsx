@@ -1,0 +1,77 @@
+"use client";
+
+import React, { useState } from "react";
+import OrderItem from "@/app/components/OrderItem";
+import Sidebar from "@/app/components/Sidebar";
+import Header from "@/app/components/Header";
+import "./orderpage.css";
+
+type Product = {
+  id: number;
+  name: string;
+  details: string;
+  quantity: number;
+};
+
+export default function OrderPage() {
+  const [customerName, setCustomerName] = useState("");
+  const [products, setProducts] = useState<Product[]>([
+    { id: 1, name: "product 1", details: "details...", quantity: 10000 },
+    { id: 2, name: "product 2", details: "details...", quantity: 1 },
+    { id: 3, name: "product 3", details: "details...", quantity: 1 },
+  ]);
+
+  const handleAddProduct = () => {
+    const newProduct: Product = {
+      id: products.length + 1,
+      name: `product ${products.length + 1}`,
+      details: "details...",
+      quantity: 1,
+    };
+    setProducts([...products, newProduct]);
+  };
+
+  const handleConfirm = () => {
+    alert("Order confirmed!");
+    setProducts([]);
+    setCustomerName("");
+  };
+
+  const handleUpdateQuantity = (id: number, quantity: number) => {
+    setProducts(products.map(p => p.id === id ? { ...p, quantity } : p));
+  };
+
+  const handleDeleteProduct = (id: number) => {
+    setProducts(products.filter(p => p.id !== id));
+  };
+
+  return (
+    <div className="page-container">
+      <Sidebar />
+      <div className="main-content">
+        <Header title="Order page" />
+        <input
+          type="text"
+          placeholder="customer name (option)"
+          value={customerName}
+          onChange={e => setCustomerName(e.target.value)}
+          className="customer-input"
+        />
+        <div className="order-items">
+          {products.map(product => (
+            <OrderItem
+              key={product.id}
+              product={product}
+              onUpdateQuantity={handleUpdateQuantity}
+              onDelete={handleDeleteProduct}
+            />
+          ))}
+        </div>
+        <div className="orderpage-actions">
+          <button onClick={handleAddProduct}>Add</button>
+          <button onClick={handleConfirm}>Confirm</button>
+        </div>
+      </div>
+    </div>
+  );
+}

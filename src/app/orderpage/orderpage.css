@@ -1,0 +1,159 @@
+/* ครอบทั้งหมด */
+.page-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--background, #fafafa);
+}
+
+/* Sidebar ซ้าย */
+.sidebar {
+  width: 250px; /* กว้างเท่ากับที่กำหนด */
+  background-color: var(--yellow-primary, #ffc107);
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* ส่วนเนื้อหาหลัก */
+.main-content {
+  flex: 1; /* กินพื้นที่ที่เหลือ */
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background-color: var(--cream-primary, #ffe0b2);
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text, #263238);
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+/* Input ชื่อ customer */
+.customer-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+  border: 2px solid var(--yellow-primary, #ffc107);
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.order-item {
+  background-color: var(--oxfore-blue-primary, #263238); /* สีพื้นหลังเข้ม */
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.productadd {
+  background-color: #00796b;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  margin: 0 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.productdecrease {
+  background-color: #ff7043; 
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  margin: 0 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ส่วนจำนวนสินค้า */
+.quantity-controls span {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* ข้อมูลสินค้า */
+.product-info {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+/* ชื่อสินค้า */
+.product-info h3 {
+  margin: 0 0 4px 0;
+}
+
+/* ปุ่มแก้ไข และ ลบ */
+.actions button {
+  background: transparent;
+  border: none;
+  color: var(--accent, #FF7043);
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-left: 12px;
+}
+
+/* กล่อง order item ทั้งหมด */
+.order-items {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+/* ปุ่ม actions ด้านล่าง */
+.orderpage-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ปุ่มทั่วไป */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* ปุ่ม Add */
+.orderpage-actions button:first-child {
+  background-color: var(--accent, #009688);
+  color: white;
+}
+
+.orderpage-actions button:first-child:hover {
+  background-color: #00796b;
+}
+
+/* ปุ่ม Confirm */
+.orderpage-actions button:last-child {
+  background-color: var(--primary, #ff7043);
+  color: white;
+}
+
+.orderpage-actions button:last-child:hover {
+  background-color: #e64a19;
+}
