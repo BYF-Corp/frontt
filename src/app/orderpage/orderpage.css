@@ -25,14 +25,13 @@
 
 /* Header */
 .header {
-  background-color: var(--cream-primary, #ffe0b2);
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 2rem;
+  height: 150px; 
+  background-color: var(--cream-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
   font-weight: bold;
-  color: var(--text, #263238);
-  margin-bottom: 20px;
-  border-radius: 4px;
 }
 
 /* Input ชื่อ customer */
@@ -50,6 +49,7 @@
 .order-item {
   background-color: var(--oxfore-blue-primary, #263238); /* สีพื้นหลังเข้ม */
   color: white;
+  font-size: 35;
   border-radius: 8px;
   margin-bottom: 12px;
   padding: 12px 20px;
@@ -105,15 +105,16 @@
 .actions button {
   background: transparent;
   border: none;
-  color: var(--accent, #FF7043);
+  color: white;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   margin-left: 12px;
 }
 
 /* กล่อง order item ทั้งหมด */
 .order-items {
   flex-grow: 1;
+  font-size: 48;
   display: flex;
   flex-direction: column;
   gap: 15px;

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 import OrderItem from "@/app/components/OrderItem";
 import Sidebar from "@/app/components/Sidebar";
 import Header from "@/app/components/Header";
@@ -14,21 +15,18 @@ type Product = {
 };
 
 export default function OrderPage() {
+  const router = useRouter(); // เพิ่ม useRouter
+
   const [customerName, setCustomerName] = useState("");
   const [products, setProducts] = useState<Product[]>([
-    { id: 1, name: "product 1", details: "details...", quantity: 10000 },
+    { id: 1, name: "product 1", details: "details...", quantity: 1 },
     { id: 2, name: "product 2", details: "details...", quantity: 1 },
     { id: 3, name: "product 3", details: "details...", quantity: 1 },
   ]);
 
   const handleAddProduct = () => {
-    const newProduct: Product = {
-      id: products.length + 1,
-      name: `product ${products.length + 1}`,
-      details: "details...",
-      quantity: 1,
-    };
-    setProducts([...products, newProduct]);
+    // ปุ่ม Add ให้ไปหน้า Home
+    router.push('/home');
   };
 
   const handleConfirm = () => {
@@ -45,11 +43,16 @@ export default function OrderPage() {
     setProducts(products.filter(p => p.id !== id));
   };
 
+  const handleEditProduct = (id: number) => {
+    // ปุ่ม Edit ให้ไปหน้า productitem พร้อมส่ง id หรือพารามิเตอร์ (ถ้าต้องการ)
+    router.push('/productitem');
+  };
+
   return (
     <div className="page-container">
       <Sidebar />
       <div className="main-content">
-        <Header title="Order page" />
+        <Header title="Orderpage" />
         <input
           type="text"
           placeholder="customer name (option)"
@@ -64,6 +67,7 @@ export default function OrderPage() {
               product={product}
               onUpdateQuantity={handleUpdateQuantity}
               onDelete={handleDeleteProduct}
+              // onEdit={() => handleEditProduct(product.id)}  {/* เพิ่ม onEdit */}
             />
           ))}
         </div>
