@@ -70,7 +70,7 @@ export default function ProductItem() {
 
   const { addOrder } = useOrder()
   const handleAdd = () => {
-
+    if (!product) return;
     addOrder({
       productId: product.id,
       productName: product.name,
