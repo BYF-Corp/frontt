@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { IoMenu } from "react-icons/io5";
 import { IoIosHome } from "react-icons/io";
-import { FaClipboardList } from "react-icons/fa";
-import { GiFrenchFries } from "react-icons/gi";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 import './Sidebar.css';

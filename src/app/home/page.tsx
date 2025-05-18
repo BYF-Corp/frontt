@@ -2,10 +2,6 @@ import React from 'react';
 import './Home.css';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import { FaCashRegister } from "react-icons/fa";
-import { HiOutlinePlus } from "react-icons/hi";
-import { FaTrash } from "react-icons/fa6";
-import { FaRegEdit } from "react-icons/fa";
 import OrderItemCard from './components/OrderItemCard';
 import AddOrderButton from './components/AddOrderButton';
 
