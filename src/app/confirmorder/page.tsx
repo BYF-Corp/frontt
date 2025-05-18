@@ -8,14 +8,19 @@ import ConfirmOrder from "@/app/confirmorder/ConfirmOrder"; // แยก compone
 import "./confirmorder.css";
 
 export default function Page() {
-  const [products, setProducts] = useState([
+//   const [products, setProducts] = useState([
+//     { id: 1, name: "Sample Product", details: "Details", quantity: 2, price: 49 },
+//     // ใส่ตัวอย่างหรือดึงจากที่อื่น
+//   ]);
+
+  const [products] = useState([
     { id: 1, name: "Sample Product", details: "Details", quantity: 2, price: 49 },
-    // ใส่ตัวอย่างหรือดึงจากที่อื่น
   ]);
 
-  function handleRemoveProduct(id: number) {
-    setProducts((prev) => prev.filter((p) => p.id !== id));
-  }
+
+//   function handleRemoveProduct(id: number) {
+//     setProducts((prev) => prev.filter((p) => p.id !== id));
+//   }
 
   function handleCancel() {
     // logic cancel
