@@ -71,16 +71,34 @@ export default function ProductItem() {
   const { addOrder } = useOrder()
   const handleAdd = () => {
     if (!product) return;
+    if (selectedSize === null) {
+      alert('กรุณาเลือกขนาดก่อนสั่งซื้อ');
+      return;
+    }
+
     addOrder({
       productId: product.id,
       productName: product.name,
       size: selectedSize,
       flavors: selectedFlavors,
-      note: note,
-      quantity: quantity,
-    })
+      note,
+      quantity,
+    });
+
     router.push('/orderpage');
-  };
+};
+  // const handleAdd = () => {
+  //   if (!product) return;
+  //   addOrder({
+  //     productId: product.id,
+  //     productName: product.name,
+  //     size: selectedSize,
+  //     flavors: selectedFlavors,
+  //     note: note,
+  //     quantity: quantity,
+  //   })
+  //   router.push('/orderpage');
+  // };
 
   if (!product) return <div>Loading...</div>;
 
