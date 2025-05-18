@@ -9,12 +9,32 @@ import Sidebar from '@/app/components/Sidebar';
 import Header from '@/app/components/Header';
 import styles from './productitem.module.css'
 
+export interface Product {
+  id: number;
+  name: string;
+  price: string; // ถ้าอยากเก็บแบบตัวเลขให้ใช้ number แทน
+  description: string;
+  imgurl: string;
+}
+
+export interface Flavor {
+  id: number;
+  flavor_name: string;
+}
+export interface Size {
+  id: number;
+  size_name: string;
+  charge: string; // หรือจะใช้เป็น number ก็ได้ถ้าจะคำนวณ เช่น charge: number;
+}
+
+
+
 export default function ProductItem() {
   const router = useRouter();
   const params = useParams(); // <-- ใช้ตรงนี้
   const productId = params?.id;
 
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product>(null);
   const [sizes, setSizes] = useState([]);
   const [flavors, setFlavors] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -26,7 +46,7 @@ export default function ProductItem() {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/fried`)
       .then(res => res.json())
       .then(data => {
-        const found = data.find((item: any) => item.id.toString() === productId);
+        const found = data.find((item: Product) => item.id.toString() === productId);
         setProduct(found);
       });
 
@@ -82,7 +102,7 @@ export default function ProductItem() {
                 <div className={styles.section}><b>{product.description}</b></div>
                 <div className={styles.section}>
                     <div><b>Size:</b></div>
-                    {sizes.map((s: any) => (
+                    {sizes.map((s: Size) => (
                     <label key={s.id}>
                         <input
                         type="radio"
@@ -96,7 +116,7 @@ export default function ProductItem() {
                 </div>
                 <div className={styles.section}>
                     <div><b>Flavors</b></div>
-                    {flavors.map((f: any) => (
+                    {flavors.map((f: Flavor) => (
                     <label key={f.id}>
                         <input
                         type="checkbox"

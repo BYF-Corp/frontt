@@ -32,7 +32,7 @@ export interface Order {
 const Home = async () => {
   
   const orders = await getOrder()
-  const sortedOrder = orders.sort((a: any, b: any) => new Date(a.date_ordered).getTime() - new Date(b.date_ordered).getTime())
+  const sortedOrder = orders.sort((a: Order, b: Order) => new Date(a.date_ordered).getTime() - new Date(b.date_ordered).getTime())
 
   return (
     <div className="home-container">

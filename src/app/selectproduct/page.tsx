@@ -3,6 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+export interface Product {
+  id: number;
+  name: string;
+  price: string; // ถ้าอยากเก็บแบบตัวเลขให้ใช้ number แทน
+  description: string;
+  imgurl: string;
+}
+
 export default function SelectProduct() {
   const [products, setProducts] = useState([]);
   const router = useRouter();
@@ -21,7 +29,7 @@ export default function SelectProduct() {
     <div style={{ padding: '1rem' }}>
       <h2>Select Product</h2>
       <div style={{ display: 'grid', gap: '1rem' }}>
-        {products.map((product: any) => (
+        {products.map((product: Product) => (
           <div
             key={product.id}
             style={{
