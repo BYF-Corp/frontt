@@ -34,7 +34,8 @@ export default function ProductItem() {
   const params = useParams(); // <-- ใช้ตรงนี้
   const productId = params?.id;
 
-  const [product, setProduct] = useState<Product>(null);
+  // const [product, setProduct] = useState<Product>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [sizes, setSizes] = useState([]);
   const [flavors, setFlavors] = useState([]);
   const [quantity, setQuantity] = useState(1);
