@@ -9,7 +9,7 @@ export default function SelectProduct() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/fried')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/fried`)
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);

@@ -22,10 +22,18 @@ async function deleteOrder(id: number) {
   return true;
 }
 
+// async function getOrder() {
+//   console.log('getorder')
+//   const res = await fetch(`http://127.0.0.1:8000/api/order`)
+//   if (!res.ok){
+//     throw new Error('fetch order failed!')
+//   }
 
+//   return res.json()
+// }
 async function getOrder() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order`)
-
+  // console.log('getorder')
+  const res = await fetch(`http://127.0.0.1:8000/api/order`)
   if (!res.ok){
     throw new Error('fetch order failed!')
   }
@@ -46,14 +54,11 @@ const Home = async () => {
           <Header title="Home" />
         </div>
         <div className="orders">
-          <div className="order-item">
-            <p>Order ID: 1</p>
-            <div className="order-action">
-              <button className='Edit'> <FaRegEdit size={24} /></button>
-              <button className='Delete'> <FaTrash size={24} /> </button>
-              <button className ='check'> <FaCashRegister size={24} />  </button>
-            </div>
-          </div>
+          {
+            sortedOrder.map((order: any, index: number) => (
+              <OrderItemCard key={index} order={order}/>
+            ))
+          }
         </div>
         <div className="add-button">
           <AddOrderButton />

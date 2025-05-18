@@ -23,18 +23,18 @@ export default function ProductItem() {
   const [note, setNote] = useState('');
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/fried`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/fried`)
       .then(res => res.json())
       .then(data => {
         const found = data.find((item: any) => item.id.toString() === productId);
         setProduct(found);
       });
 
-    fetch(`http://127.0.0.1:8000/api/size`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/size`)
       .then(res => res.json())
       .then(setSizes);
 
-    fetch(`http://127.0.0.1:8000/api/flavor`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/flavor`)
       .then(res => res.json())
       .then(setFlavors);
   }, [productId]);
