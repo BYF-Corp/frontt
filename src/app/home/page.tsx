@@ -6,8 +6,46 @@ import { FaCashRegister } from "react-icons/fa";
 import { HiOutlinePlus } from "react-icons/hi";
 import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
+import OrderItemCard from './components/OrderItemCard';
+import AddOrderButton from './components/AddOrderButton';
 
-const Home = () => {
+async function deleteOrder(id: number) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order/${id}/`, {
+    method: 'DELETE',
+  });
+
+  if (!res.ok) {
+    throw new Error('Delete order failed!');
+  }
+
+  
+  return true;
+}
+
+// async function getOrder() {
+//   console.log('getorder')
+//   const res = await fetch(`http://127.0.0.1:8000/api/order`)
+//   if (!res.ok){
+//     throw new Error('fetch order failed!')
+//   }
+
+//   return res.json()
+// }
+async function getOrder() {
+  // console.log('getorder')
+  const res = await fetch(`http://127.0.0.1:8000/api/order`)
+  if (!res.ok){
+    throw new Error('fetch order failed!')
+  }
+
+  return res.json()
+}
+
+const Home = async () => {
+  
+  const orders = await getOrder()
+  const sortedOrder = orders.sort((a: any, b: any) => new Date(a.date_ordered).getTime() - new Date(b.date_ordered).getTime())
+
   return (
     <div className="home-container">
       <Sidebar />
@@ -16,17 +54,14 @@ const Home = () => {
           <Header title="Home" />
         </div>
         <div className="orders">
-          <div className="order-item">
-            <p>Order ID: 1</p>
-            <div className="order-action">
-              <button className='Edit'> <FaRegEdit size={24} /></button>
-              <button className='Delete'> <FaTrash size={24} /> </button>
-              <button className ='check'> <FaCashRegister size={24} />  </button>
-            </div>
-          </div>
+          {
+            sortedOrder.map((order: any, index: number) => (
+              <OrderItemCard key={index} order={order}/>
+            ))
+          }
         </div>
         <div className="add-button">
-          <button> + ADD</button>
+          <AddOrderButton />
         </div>
       </div>
     </div>

@@ -20,14 +20,14 @@ export default function LoginPage() {
 
       {/* Login Card */}
       <div className={styles.loginCard}>
-        <div className={styles.logoContainer}>
+        {/* <div className={styles.logoContainer}>
           <Image
             src="/images/logo.png"
             alt="Friend Fries Logo"
             width={80}
             height={80}
           />
-        </div>
+        </div> */}
 
         <h1 className={styles.title}>Friend Fries</h1>
         <p className={styles.subtitle}>เฟรนด์ฟรายทอดจากเพื่อนสู่เพื่อน</p>
