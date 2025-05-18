@@ -23,6 +23,11 @@ async function getOrder() {
 
   return res.json()
 }
+export interface Order {
+  id: number;
+  guest_name: string;
+  date_ordered: Date;
+}
 
 const Home = async () => {
   
@@ -38,7 +43,7 @@ const Home = async () => {
         </div>
         <div className="orders">
           {
-            sortedOrder.map((order: any, index: number) => (
+            sortedOrder.map((order: Order, index: number) => (
               <OrderItemCard key={index} order={order}/>
             ))
           }

@@ -17,8 +17,13 @@ async function deleteOrder(id: number) {
   window.location.reload()
   return true;
 }
+export interface Order {
+  id: number;
+  guest_name: string;
+  date_ordered: Date;
+}
 
-const OrderItemCard = ({ order }: { order: any }) => {
+const OrderItemCard = ({ order }: { order: Order}) => {
   return (
     <div className="order-item">
       <p>Order {order.id}: by {order.guest_name}</p>
