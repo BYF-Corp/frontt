@@ -49,13 +49,6 @@ export default function ProductItem() {
 
   const { addOrder } = useOrder()
   const handleAdd = () => {
-    const selectedData = {
-      productId: product.id,
-      productName: product.name,
-      size: selectedSize,
-      flavors: selectedFlavors,
-      note,
-    };
 
     addOrder({
       productId: product.id,

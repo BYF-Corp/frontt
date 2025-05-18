@@ -22,13 +22,13 @@ export default function ProductItem() {
   };
 
   const handleAdd = () => {
-    const selectedData = {
-      productName: 'French Fries',
-      size: selectedSize,
-      flavors: selectedFlavors,
-      note: note,
-    };
-    console.log('Selected:', selectedData);
+    // const selectedData = {
+    //   productName: 'French Fries',
+    //   size: selectedSize,
+    //   flavors: selectedFlavors,
+    //   note: note,
+    // };
+    // console.log('Selected:', selectedData);
     router.push('/orderpage');
   };
 
