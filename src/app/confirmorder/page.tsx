@@ -1,57 +1,38 @@
+// src/app/confirmorder/page.tsx
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "@/app/components/Sidebar";
 import Header from "@/app/components/Header";
+import ConfirmOrder from "@/app/confirmorder/ConfirmOrder"; // แยก component ออกมา
 import "./confirmorder.css";
 
-type Product = {
-  id: number;
-  name: string;
-  details: string;
-  quantity: number;
-  price: number;
-};
+export default function Page() {
+  const [products, setProducts] = useState([
+    { id: 1, name: "Sample Product", details: "Details", quantity: 2, price: 49 },
+    // ใส่ตัวอย่างหรือดึงจากที่อื่น
+  ]);
 
-type ConfirmOrderProps = {
-  products?: Product[];  // แก้ตรงนี้ให้เป็น optional
-  onCancel: () => void;
-  onSuccess: () => void;
-};
+  function handleCancel() {
+    // logic cancel
+    console.log("Cancelled");
+  }
 
-export default function ConfirmOrder({
-  products = [],  // กำหนด default เป็น array ว่าง
-  onCancel,
-  onSuccess,
-}: ConfirmOrderProps) {
-  const totalPrice = products.reduce(
-    (sum, product) => sum + product.price * product.quantity,
-    0
-  );
+  function handleSuccess() {
+    // logic success
+    console.log("Success");
+  }
 
   return (
     <div className="confirmorder-container">
       <Sidebar />
       <main className="confirmorder-main">
         <Header title="Confirm Order" />
-        <div className="order-summary-card">
-          {products.map((product) => (
-            <div key={product.id} className="order-summary-item">
-              <div className="product-name">{product.name}</div>
-              <div className="product-details">{product.details}</div>
-              <div className="product-quantity">{product.quantity}</div>
-              <div className="product-price">${product.price * product.quantity}</div>
-            </div>
-          ))}
-          <div className="order-summary-total">
-            <div>Total Price:</div>
-            <div>${totalPrice}</div>
-          </div>
-        </div>
-        <div className="order-summary-actions">
-          <button className="cancel-button" onClick={onCancel}>Cancel</button>
-          <button className="success-button" onClick={onSuccess}>Success</button>
-        </div>
+        <ConfirmOrder
+          products={products}
+          onCancel={handleCancel}
+          onSuccess={handleSuccess}
+        />
       </main>
     </div>
   );
