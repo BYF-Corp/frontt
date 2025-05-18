@@ -80,7 +80,8 @@ export default function ProductItem() {
       productId: product.id,
       productName: product.name,
       size: selectedSize,
-      flavors: selectedFlavors,
+      // flavors: selectedFlavors,
+      flavors: selectedFlavors.map(String),
       note,
       quantity,
     });
