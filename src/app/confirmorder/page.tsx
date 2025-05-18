@@ -13,6 +13,10 @@ export default function Page() {
     // ใส่ตัวอย่างหรือดึงจากที่อื่น
   ]);
 
+  function handleRemoveProduct(id: number) {
+    setProducts((prev) => prev.filter((p) => p.id !== id));
+  }
+
   function handleCancel() {
     // logic cancel
     console.log("Cancelled");
