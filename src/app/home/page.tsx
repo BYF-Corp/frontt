@@ -6,6 +6,22 @@ import { FaCashRegister } from "react-icons/fa";
 import { HiOutlinePlus } from "react-icons/hi";
 import { FaTrash } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
+import OrderItemCard from './components/OrderItemCard';
+import AddOrderButton from './components/AddOrderButton';
+
+async function deleteOrder(id: number) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order/${id}/`, {
+    method: 'DELETE',
+  });
+
+  if (!res.ok) {
+    throw new Error('Delete order failed!');
+  }
+
+  
+  return true;
+}
+
 
 async function getOrder() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/order`)
@@ -40,7 +56,7 @@ const Home = async () => {
           </div>
         </div>
         <div className="add-button">
-          <button> + ADD</button>
+          <AddOrderButton />
         </div>
       </div>
     </div>

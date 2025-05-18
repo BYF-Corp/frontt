@@ -5,7 +5,7 @@
 
 .dashboard-main {
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
   background: #f9f9f9;
   overflow-y: auto;
 }
@@ -14,6 +14,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .card {
@@ -29,6 +30,6 @@
   flex: 1 1 600px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   font-size: 2rem;
 }

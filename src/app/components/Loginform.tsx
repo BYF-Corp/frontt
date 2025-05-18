@@ -64,7 +64,7 @@ export default function LoginForm() {
       
       <button
         type="submit"
-        className={styles.button}
+        className={styles.loginButton}
       >
         LOGIN
       </button>

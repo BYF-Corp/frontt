@@ -13,9 +13,7 @@ import './Sidebar.css';
 
 const navItems = [
   { id: 1, title: 'Home', path: '/home', icon: <IoIosHome /> },
-  { id: 2, title: 'Product List', path: '/product-list', icon: <FaClipboardList /> },
-  { id: 3, title: 'Orders', path: '/order-page', icon: <GiFrenchFries /> },
-  { id: 4, title: 'Dashboard', path: '/dashboard', icon: <FaChalkboardTeacher /> },
+  { id: 2, title: 'Dashboard', path: '/dashboard', icon: <FaChalkboardTeacher /> },
 ];
 
 const Sidebar = () => {
